@@ -58,7 +58,7 @@ class LocationService : Service() {
 
                     Toast.makeText(
                         this@LocationService,
-                        "Location: $lat , $lon",
+                        "Current Location: $lat , $lon",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

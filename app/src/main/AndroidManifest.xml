@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.geologger">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <!-- FOREGROUND SERVICE PERMISSION -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 

@@ -13,4 +13,6 @@ interface LocationDao {
 
     @Query("SELECT * FROM location_table ORDER BY id DESC")
     fun getAllLocations(): Flow<List<LocationEntity>>
+
+
 }
