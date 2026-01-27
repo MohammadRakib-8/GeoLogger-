@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Buttons -->
     <LinearLayout
         android:id="@+id/button_container"
         android:layout_width="0dp"
@@ -18,22 +17,29 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <Button
+            style="?attr/materialButtonTonalStyle"
             android:id="@+id/start_service_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@color/black"
             android:layout_marginEnd="8dp"
             android:text="Start Service" />
 
         <Button
+            style="?attr/materialButtonTonalStyle"
             android:id="@+id/stop_service_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#FF5722"
+            android:textColor="@color/black"
             android:text="Stop Service" />
+
+
     </LinearLayout>
 
-    <!-- Weather -->
     <TextView
         android:id="@+id/weatherText"
         android:layout_width="0dp"
@@ -46,7 +52,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Location list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/location_recycler_view"
         android:layout_width="0dp"

@@ -81,7 +81,7 @@ class LocationService : Service() {
             val channel = NotificationChannel(
                 channelId,
                 "Location Service",
-                NotificationManager.IMPORTANCE_LOW
+                NotificationManager.IMPORTANCE_HIGH
             )
             val manager = getSystemService(NotificationManager::class.java)
             manager.createNotificationChannel(channel)
@@ -90,8 +90,9 @@ class LocationService : Service() {
         return NotificationCompat.Builder(this, channelId)
             .setContentTitle("GeoLogger")
             .setContentText("Tracking location in background")
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setPriority(NotificationCompat.PRIORITY_LOW)
+            .setSmallIcon(R.drawable.ic_location)
+            .setOngoing(true)
+//            .setPriority(NotificationCompat.PRIORITY_LOW)
             .build()
     }
 
