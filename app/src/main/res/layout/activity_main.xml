@@ -53,6 +53,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/location_recycler_view"
         android:layout_width="0dp"

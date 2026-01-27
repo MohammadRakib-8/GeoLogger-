@@ -163,7 +163,7 @@ class MainActivity : AppCompatActivity() {
                     "🌤 Temp: $temp°C\n💨 Wind: $wind m/s"
 
             } catch (e: Exception) {
-                binding.weatherText.text = "Weather error !!"
+                binding.weatherText.text = "Chek Your Internet Connection ! \nWeather Data Unavailable.."
             }
         }
     }
