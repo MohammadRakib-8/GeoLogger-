@@ -1,8 +1,10 @@
 package com.example.geologger
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.LocationManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -47,8 +49,15 @@ class MainActivity : AppCompatActivity() {
         binding.startServiceBtn.setOnClickListener {
             if (!isLocationPermissionGranted()) {
                 openAppSettings()
+                Toast.makeText(this, "Please allow location permission", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
+            }
 
+            // 2️⃣ Location ON/OFF check
+            if (!isLocationEnabled()) {
+                Toast.makeText(this, "Please turn ON location", Toast.LENGTH_SHORT).show()
+                openLocationSettings()
+                return@setOnClickListener
             }
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -88,6 +97,15 @@ class MainActivity : AppCompatActivity() {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
+    private fun isLocationEnabled(): Boolean {
+        val locationManager =
+            getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
+                locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+    }
+
+
     private fun startLocationService() {
         val intent = Intent(this, LocationService::class.java)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -111,6 +129,10 @@ class MainActivity : AppCompatActivity() {
     private fun openAppSettings() {
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
         intent.data = Uri.parse("package:$packageName")
+        startActivity(intent)
+    }
+    private fun openLocationSettings() {
+        val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
         startActivity(intent)
     }
 

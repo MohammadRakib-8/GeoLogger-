@@ -7,11 +7,11 @@
     <!-- FOREGROUND SERVICE PERMISSION -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <!-- LOCATION PERMISSIONS (REQUIRED) -->
+    <!-- LOCATION PERMISSIONS -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <!-- REQUIRED FOR ANDROID 12+ (Foreground Location Service) -->
+    <!-- FOR ANDROID 12+ (Foreground Location Service) -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
 
 
@@ -25,7 +25,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeoLogger">
 
-        <!-- MAIN ACTIVITY -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
